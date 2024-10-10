@@ -15,6 +15,12 @@
   - [blankLinesBetweenScopes](#blanklinesbetweenscopes)
   - [blockComments](#blockcomments)
   - [braces](#braces)
+  - [conditionalAssignment](#conditionalassignment)
+  - [consecutiveBlankLines](#consecutiveblanklines)
+  - [consecutiveSpaces](#consecutivespaces)
+  - [consistentSwitchCaseSpacing](#consistentswitchcasespacing)
+  - [docComments](#doccomments)
+  - [duplicateImports](#duplicateimports)
 
 ## andOperator
 
@@ -375,3 +381,198 @@ Option | Description
 
 **NOTE:** K&R 风格中，左大括号在行尾；Allman 风格中，左大括号单独占一行。
 
+## conditionalAssignment
+
+使用 if / switch 表达式给属性赋值。
+
+Option | Description
+--- | ---
+`--condassignment` | 控制条件语句赋值风格: "after-property" (default) or "always"
+
+<details>
+<summary>Examples</summary>
+
+```diff
+- let foo: String
+- if condition {
++ let foo = if condition {
+-     foo = "foo"
++     "foo"
+  } else {
+-     foo = "bar"
++     "bar"
+  }
+
+- let foo: String
+- switch condition {
++ let foo = switch condition {
+  case true:
+-     foo = "foo"
++     "foo"
+  case false:
+-     foo = "bar"
++     "bar"
+  }
+
+// With --condassignment always (disabled by default)
+- switch condition {
++ foo.bar = switch condition {
+  case true:
+-     foo.bar = "baaz"
++     "baaz"
+  case false:
+-     foo.bar = "quux"
++     "quux"
+  }
+```
+
+</details>
+<br/>
+
+## consecutiveBlankLines
+
+使用单个空白行替换连续空白行。
+
+<details>
+<summary>Examples</summary>
+
+```diff
+  func foo() {
+    let x = "bar"
+-
+
+    print(x)
+  }
+
+  func foo() {
+    let x = "bar"
+
+    print(x)
+  }
+```
+
+</details>
+<br/>
+
+## consecutiveSpaces
+
+使用单个空格替换连续空格。
+
+<details>
+<summary>Examples</summary>
+
+```diff
+- let     foo = 5
++ let foo = 5
+```
+
+</details>
+<br/>
+
+## consistentSwitchCaseSpacing
+
+确保 switch 语句中所有 case 之间的间距一致。
+
+<details>
+<summary>Examples</summary>
+
+```diff
+  func handle(_ action: SpaceshipAction) {
+      switch action {
+      case .engageWarpDrive:
+          navigationComputer.destination = targetedDestination
+          await warpDrive.spinUp()
+          warpDrive.activate()
+
+      case .enableArtificialGravity:
+          artificialGravityEngine.enable(strength: .oneG)
++
+      case let .scanPlanet(planet):
+          scanner.target = planet
+          scanner.scanAtmosphere()
+          scanner.scanBiosphere()
+          scanner.scanForArtificialLife()
+
+      case .handleIncomingEnergyBlast:
+          energyShields.engage()
+      }
+  }
+```
+
+```diff
+  var name: PlanetType {
+  switch self {
+  case .mercury:
+      "Mercury"
+-
+  case .venus:
+      "Venus"
+  case .earth:
+      "Earth"
+  case .mars:
+      "Mars"
+-
+  case .jupiter:
+      "Jupiter"
+  case .saturn:
+      "Saturn"
+  case .uranus:
+      "Uranus"
+  case .neptune:
+      "Neptune"
+  }
+```
+
+</details>
+<br/>
+
+## docComments
+
+在 API 声明时使用 `///`，否则使用 `//`。
+
+Option | Description
+--- | ---
+`--doccomments` | 文档注释: "before-declarations" (default) or "preserve"
+
+<details>
+<summary>Examples</summary>
+
+```diff
+- // A placeholder type used to demonstrate syntax rules
++ /// A placeholder type used to demonstrate syntax rules
+  class Foo {
+-     // This function doesn't really do anything
++     /// This function doesn't really do anything
+      func bar() {
+-         /// TODO: implement Foo.bar() algorithm
++         // TODO: implement Foo.bar() algorithm
+      }
+  }
+```
+
+</details>
+<br/>
+
+## duplicateImports
+
+删除重复的 import 语句。
+
+<details>
+<summary>Examples</summary>
+
+```diff
+  import Foo
+  import Bar
+- import Foo
+```
+
+```diff
+  import B
+  #if os(iOS)
+    import A
+-   import B
+  #endif
+```
+
+</details>
+<br/>
