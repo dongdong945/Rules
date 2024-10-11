@@ -1,33 +1,125 @@
-# 规则详解
 
-- [规则详解](#规则详解)
+- [默认开启规则](#默认开启规则)
   - [andOperator](#andoperator)
   - [anyObjectProtocol](#anyobjectprotocol)
   - [applicationMain](#applicationmain)
   - [assertionFailures](#assertionfailures)
   - [blankLineAfterImports](#blanklineafterimports)
-  - [blankLineAfterSwitchCase](#blanklineafterswitchcase)
   - [blankLinesAroundMark](#blanklinesaroundmark)
   - [blankLinesAtEndOfScope](#blanklinesatendofscope)
   - [blankLinesAtStartOfScope](#blanklinesatstartofscope)
   - [blankLinesBetweenChainedFunctions](#blanklinesbetweenchainedfunctions)
-  - [blankLinesBetweenImports](#blanklinesbetweenimports)
   - [blankLinesBetweenScopes](#blanklinesbetweenscopes)
-  - [blockComments](#blockcomments)
   - [braces](#braces)
   - [conditionalAssignment](#conditionalassignment)
   - [consecutiveBlankLines](#consecutiveblanklines)
   - [consecutiveSpaces](#consecutivespaces)
   - [consistentSwitchCaseSpacing](#consistentswitchcasespacing)
-  - [docComments](#doccomments)
   - [duplicateImports](#duplicateimports)
+  - [elseOnSameLine](#elseonsameline)
+  - [emptyBraces](#emptybraces)
+  - [enumNamespaces](#enumnamespaces)
+  - [extensionAccessControl](#extensionaccesscontrol)
+  - [fileHeader](#fileheader)
+  - [genericExtensions](#genericextensions)
+  - [headerFileName](#headerfilename)
+  - [hoistAwait](#hoistawait)
+  - [hoistPatternLet](#hoistpatternlet)
+  - [hoistTry](#hoisttry)
+  - [indent](#indent)
+  - [initCoderUnavailable](#initcoderunavailable)
+  - [leadingDelimiters](#leadingdelimiters)
+  - [linebreakAtEndOfFile](#linebreakatendoffile)
+  - [linebreaks](#linebreaks)
+  - [modifierOrder](#modifierorder)
+  - [numberFormatting](#numberformatting)
+  - [opaqueGenericParameters](#opaquegenericparameters)
+  - [preferForLoop](#preferforloop)
+  - [preferKeyPath](#preferkeypath)
+  - [redundantBackticks](#redundantbackticks)
+  - [redundantBreak](#redundantbreak)
+  - [redundantClosure](#redundantclosure)
+  - [redundantExtensionACL](#redundantextensionacl)
+  - [redundantFileprivate](#redundantfileprivate)
+  - [redundantGet](#redundantget)
+  - [redundantInit](#redundantinit)
+  - [redundantInternal](#redundantinternal)
+  - [redundantLet](#redundantlet)
+  - [redundantLetError](#redundantleterror)
+  - [redundantNilInit](#redundantnilinit)
+  - [redundantObjc](#redundantobjc)
+  - [redundantOptionalBinding](#redundantoptionalbinding)
+  - [redundantParens](#redundantparens)
+  - [redundantPattern](#redundantpattern)
+  - [redundantRawValues](#redundantrawvalues)
+  - [redundantReturn](#redundantreturn)
+  - [redundantSelf](#redundantself)
+  - [redundantStaticSelf](#redundantstaticself)
+  - [redundantType](#redundanttype)
+  - [redundantTypedThrows](#redundanttypedthrows)
+  - [redundantVoidReturnType](#redundantvoidreturntype)
+  - [semicolons](#semicolons)
+  - [sortDeclarations](#sortdeclarations)
+  - [sortImports](#sortimports)
+  - [sortTypealiases](#sorttypealiases)
+  - [spaceAroundBraces](#spacearoundbraces)
+  - [spaceAroundBrackets](#spacearoundbrackets)
+  - [spaceAroundComments](#spacearoundcomments)
+  - [spaceAroundGenerics](#spacearoundgenerics)
+  - [spaceAroundOperators](#spacearoundoperators)
+  - [spaceAroundParens](#spacearoundparens)
+  - [spaceInsideBraces](#spaceinsidebraces)
+  - [spaceInsideBrackets](#spaceinsidebrackets)
+  - [spaceInsideComments](#spaceinsidecomments)
+  - [spaceInsideGenerics](#spaceinsidegenerics)
+  - [spaceInsideParens](#spaceinsideparens)
+  - [strongOutlets](#strongoutlets)
+  - [strongifiedSelf](#strongifiedself)
+  - [todos](#todos)
+  - [trailingClosures](#trailingclosures)
+  - [trailingCommas](#trailingcommas)
+  - [trailingSpace](#trailingspace)
+  - [typeSugar](#typesugar)
+  - [unusedArguments](#unusedarguments)
+  - [void](#void)
+  - [wrap](#wrap)
+  - [wrapArguments](#wraparguments)
+  - [wrapAttributes](#wrapattributes)
+  - [wrapLoopBodies](#wraploopbodies)
+  - [wrapMultilineStatementBraces](#wrapmultilinestatementbraces)
+  - [wrapSingleLineComments](#wrapsinglelinecomments)
+  - [yodaConditions](#yodaconditions)
+- [默认关闭规则](#默认关闭规则)
+  - [acronyms](#acronyms)
+  - [blankLineAfterSwitchCase](#blanklineafterswitchcase)
+  - [blankLinesBetweenImports](#blanklinesbetweenimports)
+  - [blockComments](#blockcomments)
+  - [docComments](#doccomments)
+  - [isEmpty](#isempty)
+  - [markTypes](#marktypes)
+  - [noExplicitOwnership](#noexplicitownership)
+  - [organizeDeclarations](#organizedeclarations)
+  - [redundantProperty](#redundantproperty)
+  - [sortSwitchCases](#sortswitchcases)
+  - [wrapConditionalBodies](#wrapconditionalbodies)
+  - [wrapEnumCases](#wrapenumcases)
+  - [wrapMultilineConditionalAssignment](#wrapmultilineconditionalassignment)
+  - [wrapSwitchCases](#wrapswitchcases)
+- [已弃用规则](#已弃用规则)
+  - [sortedImports](#sortedimports)
+  - [sortedSwitchCases](#sortedswitchcases)
+  - [specifiers](#specifiers)
+
+----------
+
+# 默认开启规则
 
 ## andOperator
 
-在 `if`, `guard` 或 `while` 条件语句中，首选 `,` 而不是 `&&`。
+在 `if`, `guard` 或 `while` 条件中，首选 `,` 而不是 `&&`。
 
 <details>
-<summary>Examples</summary>
+<summary>示例</summary>
 
 ```diff
 - if true && true {
@@ -57,29 +149,28 @@
 在协议定义中，首选 `AnyObject` 而不是 `class`。
 
 <details>
-<summary>Examples</summary>
+<summary>示例</summary>
 
 ```diff
 - protocol Foo: class {}
 + protocol Foo: AnyObject {}
 ```
 
+**NOTE:** 首选 `AnyObject` 而不是 `class` 的建议在 Swift 4.1 中引入，所以 `anyObjectProtocol` 规则在 Swift 4.1 前是禁用的。
+
 </details>
 <br/>
 
-**NOTE:** 首选 `AnyObject` 而不是 `class` 的建议
-在 Swift 4.1 中引入，所以 `anyObjectProtocol` 规则在 Swift 4.1 前是禁用的。
-
 ## applicationMain
 
-在 Swift 5.3 及之后，使用 `@main` 替代过时的 `@UIApplicationMain` 和 `@NSApplicationMain` 属性。
+在 Swift 5.3 及以上，使用 `@main` 替代过时的 `@UIApplicationMain` 和 `@NSApplicationMain` 特性。
 
 ## assertionFailures
 
-使用 `assertionFailure(...)` 替代 `assert(false, ...)`。使用 `preconditionFailure(...)` 替代 `precondition(false, ...)`。
+用 `assertionFailure(...)` 替换 `assert(false, ...)`，用 `preconditionFailure(...)` 替换 `precondition(false, ...)`。
 
 <details>
-<summary>Examples</summary>
+<summary>示例</summary>
 
 ```diff
 - assert(false)
@@ -101,10 +192,10 @@
 
 ## blankLineAfterImports
 
-在 import 语句后插入空白行。
+在 `import` 语句后插入空白行。
 
 <details>
-<summary>Examples</summary>
+<summary>示例</summary>
 
 ```diff
   import A
@@ -119,47 +210,16 @@
 </details>
 <br/>
 
-## blankLineAfterSwitchCase
-
-在多行的 switch case 语句后插入一个空白行（最后一个 case 除外，最后一个 case 后面是右大括号）。
-
-<details>
-<summary>Examples</summary>
-
-```diff
-  func handle(_ action: SpaceshipAction) {
-      switch action {
-      case .engageWarpDrive:
-          navigationComputer.destination = targetedDestination
-          await warpDrive.spinUp()
-          warpDrive.activate()
-+
-      case let .scanPlanet(planet):
-          scanner.target = planet
-          scanner.scanAtmosphere()
-          scanner.scanBiosphere()
-          scanner.scanForArticialLife()
-+
-      case .handleIncomingEnergyBlast:
-          await energyShields.prepare()
-          energyShields.engage()
-      }
-  }
-```
-
-</details>
-<br/>
-
 ## blankLinesAroundMark
 
 在 `MARK:` 注释前后插入空白行。
 
-Option | Description
+选项 | 描述
 --- | ---
-`--lineaftermarks` | 在 `MARK:` 后插入空白行，"true" (default) or "false"
+`--lineaftermarks` | Insert blank line after "MARK:": "true" (default) or "false"
 
 <details>
-<summary>Examples</summary>
+<summary>示例</summary>
 
 ```diff
   func foo() {
@@ -186,10 +246,10 @@ Option | Description
 
 ## blankLinesAtEndOfScope
 
-删除作用域末尾的尾随空白行。
+移除作用域末尾的尾随空白行。
 
 <details>
-<summary>Examples</summary>
+<summary>示例</summary>
 
 ```diff
   func foo() {
@@ -222,14 +282,14 @@ Option | Description
 
 ## blankLinesAtStartOfScope
 
-删除作用域开头的空白行。
+移除作用域开头的空白行。
 
-Option | Description
+选项 | 描述
 --- | ---
-`--typeblanklines` | 从类型中删除空白行，"remove" (default) or "preserve"
+`--typeblanklines` | "remove" (default) or "preserve" blank lines from types
 
 <details>
-<summary>Examples</summary>
+<summary>示例</summary>
 
 ```diff
   func foo() {
@@ -262,35 +322,14 @@ Option | Description
 
 ## blankLinesBetweenChainedFunctions
 
-删除链式函数之间的空白行，但保留换行符。
-
-## blankLinesBetweenImports
-
-删除 import 语句之间的空白行。
-
-<details>
-<summary>Examples</summary>
-
-```diff
-  import A
--
-  import B
-  import C
--
--
-  @testable import D
-  import E
-```
-
-</details>
-<br/>
+移除链式函数之间的空白行，但保留换行符。
 
 ## blankLinesBetweenScopes
 
-在 class，struct，enum，extension，protocol 或 function 声明前插入空白行。
+在 `class`，`struct`，`enum`，`extension`，`protocol` 或 `function` 声明前插入空白行。
 
 <details>
-<summary>Examples</summary>
+<summary>示例</summary>
 
 ```diff
   func foo() {
@@ -312,36 +351,6 @@ Option | Description
 +
   var baz: Bool
   var quux: Int
-```
-
-</details>
-<br/>
-
-## blockComments
-
-将块注释转换为连续的单行注释。
-
-<details>
-<summary>Examples</summary>
-
-```diff
-- /*
--  * foo
--  * bar
--  */
-
-+ // foo
-+ // bar
-```
-
-```diff
-- /**
--  * foo
--  * bar
--  */
-
-+ /// foo
-+ /// bar
 ```
 
 </details>
@@ -349,14 +358,14 @@ Option | Description
 
 ## braces
 
-确定大括号的放置风格（K&R or Allman）。
+根据选定样式确定大括号位置（K&R 或 Allman）。
 
-Option | Description
+选项 | 描述
 --- | ---
-`--allman` | 使用 Allman 风格，"true" or "false" (default)
+`--allman` | 使用 Allman 缩进样式: "true" or "false" (default)
 
 <details>
-<summary>Examples</summary>
+<summary>示例</summary>
 
 ```diff
 - if x
@@ -379,18 +388,18 @@ Option | Description
 </details>
 <br/>
 
-**NOTE:** K&R 风格中，左大括号在行尾；Allman 风格中，左大括号单独占一行。
+**NOTE:** K&R 样式中，左大括号在行尾；Allman 样式中，左大括号单独一行。
 
 ## conditionalAssignment
 
-使用 if / switch 表达式给属性赋值。
+使用 `if` / `switch` 表达式给属性赋值。
 
-Option | Description
+选项 | 描述
 --- | ---
-`--condassignment` | 控制条件语句赋值风格: "after-property" (default) or "always"
+`--condassignment` | Use cond. assignment: "after-property" (default) or "always"
 
 <details>
-<summary>Examples</summary>
+<summary>示例</summary>
 
 ```diff
 - let foo: String
@@ -431,10 +440,10 @@ Option | Description
 
 ## consecutiveBlankLines
 
-使用单个空白行替换连续空白行。
+将连续的空白行替换为单个空白行。
 
 <details>
-<summary>Examples</summary>
+<summary>示例</summary>
 
 ```diff
   func foo() {
@@ -456,10 +465,10 @@ Option | Description
 
 ## consecutiveSpaces
 
-使用单个空格替换连续空格。
+将连续的空格替换为单个空格。
 
 <details>
-<summary>Examples</summary>
+<summary>示例</summary>
 
 ```diff
 - let     foo = 5
@@ -471,10 +480,10 @@ Option | Description
 
 ## consistentSwitchCaseSpacing
 
-确保 switch 语句中所有 case 之间的间距一致。
+确保 `switch` 语句中所有 `case` 之间的间距一致。
 
 <details>
-<summary>Examples</summary>
+<summary>示例</summary>
 
 ```diff
   func handle(_ action: SpaceshipAction) {
@@ -526,39 +535,12 @@ Option | Description
 </details>
 <br/>
 
-## docComments
-
-在 API 声明时使用 `///`，否则使用 `//`。
-
-Option | Description
---- | ---
-`--doccomments` | 文档注释: "before-declarations" (default) or "preserve"
-
-<details>
-<summary>Examples</summary>
-
-```diff
-- // A placeholder type used to demonstrate syntax rules
-+ /// A placeholder type used to demonstrate syntax rules
-  class Foo {
--     // This function doesn't really do anything
-+     /// This function doesn't really do anything
-      func bar() {
--         /// TODO: implement Foo.bar() algorithm
-+         // TODO: implement Foo.bar() algorithm
-      }
-  }
-```
-
-</details>
-<br/>
-
 ## duplicateImports
 
-删除重复的 import 语句。
+移除重复的 `import` 语句。
 
 <details>
-<summary>Examples</summary>
+<summary>示例</summary>
 
 ```diff
   import Foo
@@ -576,3 +558,2476 @@ Option | Description
 
 </details>
 <br/>
+
+## elseOnSameLine
+
+根据选定样式确定 `else`，`catch` 或 `while` 关键字位置（同一行或换行）。
+
+选项 | 描述
+--- | ---
+`--elseposition` | else / catch 位置: "same-line" (default) or "next-line"
+`--guardelse` | Guard else 位置: "same-line", "next-line" or "auto" (default)
+
+<details>
+<summary>示例</summary>
+
+```diff
+  if x {
+    // foo
+- }
+- else {
+    // bar
+  }
+
+  if x {
+    // foo
++ } else {
+    // bar
+  }
+```
+
+```diff
+  do {
+    // try foo
+- }
+- catch {
+    // bar
+  }
+
+  do {
+    // try foo
++ } catch {
+    // bar
+  }
+```
+
+```diff
+  repeat {
+    // foo
+- }
+- while {
+    // bar
+  }
+
+  repeat {
+    // foo
++ } while {
+    // bar
+  }
+```
+
+</details>
+<br/>
+
+## emptyBraces
+
+移除空大括号里的空白。
+
+选项 | 描述
+--- | ---
+`--emptybraces` | Empty braces: "no-space" (default), "spaced" or "linebreak"
+
+<details>
+<summary>示例</summary>
+
+```diff
+- func foo() {
+-
+- }
+
++ func foo() {}
+```
+
+</details>
+<br/>
+
+## enumNamespaces
+
+将仅用于托管静态成员的类型转为枚举（空枚举是在 Swift 中创建命名空间的规范方法，因为不能被实例化）。
+
+选项 | 描述
+--- | ---
+`--enumnamespaces` | Change type to enum: "always" (default) or "structs-only"
+
+## extensionAccessControl
+
+配置 `extension` 的访问控制关键字位置。
+
+选项 | 描述
+--- | ---
+`--extensionacl` | Place ACL "on-extension" (default) or "on-declarations"
+
+<details>
+<summary>示例</summary>
+
+`--extensionacl on-extension` (default)
+
+```diff
+- extension Foo {
+-     public func bar() {}
+-     public func baz() {}
+  }
+
++ public extension Foo {
++     func bar() {}
++     func baz() {}
+  }
+```
+
+`--extensionacl on-declarations`
+
+```diff
+- public extension Foo {
+-     func bar() {}
+-     func baz() {}
+-     internal func quux() {}
+  }
+
++ extension Foo {
++     public func bar() {}
++     public func baz() {}
++     func quux() {}
+  }
+```
+
+</details>
+<br/>
+
+## fileHeader
+
+对所有文件使用指定的源文件头模版。
+
+选项 | 描述
+--- | ---
+`--header` | Header comments: "strip", "ignore", or the text you wish use
+`--dateformat` | "system" (default), "iso", "dmy", "mdy" or custom
+`--timezone` | "system" (default) or a valid identifier/abbreviation
+
+<details>
+<summary>示例</summary>
+
+You can use the following tokens in the text:
+
+Token | Description
+--- | ---
+`{file}` | File name
+`{year}` | Current year
+`{created}` | File creation date
+`{created.year}` | File creation year
+`{author}` | Name and email of the user who first committed the file
+`{author.name}` | Name of the user who first committed the file
+`{author.email}` | Email of the user who first committed the file
+
+**Example**:
+
+`--header \n {file}\n\n Copyright © {created.year} {author.name}.\n`
+
+```diff
+- // SomeFile.swift
+
++ //
++ //  SomeFile.swift
++ //  Copyright © 2023 Tim Apple.
++ //
+```
+
+You can use the following built-in formats for `--dateformat`:
+
+Token | Description
+--- | ---
+system | Use the local system locale
+iso | ISO 8601 (yyyy-MM-dd)
+dmy | Date/Month/Year (dd/MM/yyyy)
+mdy | Month/Day/Year (MM/dd/yyyy)
+
+Custom formats are defined using
+[Unicode symbols](https://www.unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Field_Symbol_Table).
+
+`--dateformat iso`
+
+```diff
+- // Created {created}
++ // Created 2023-08-10
+```
+
+`--dateformat dmy`
+
+```diff
+- // Created {created}
++ // Created 10/08/2023
+```
+
+`--dateformat mdy`
+
+```diff
+- // Created {created}
++ // Created 08/10/2023
+```
+
+`--dateformat 'yyyy.MM.dd.HH.mm'`
+
+```diff
+- // Created {created}
++ // Created 2023.08.10.11.00
+```
+
+Setting a time zone enforces consistent date formatting across environments
+around the world. By default the local system locale is used and for convenience
+`gmt` and `utc` can be used. The time zone can be further customized by
+setting it to a abbreviation/time zone identifier supported by the Swift
+standard library.
+
+`--dateformat 'yyyy-MM-dd HH:mm ZZZZ' --timezone utc`
+
+```diff
+- // Created {created}
++ // Created 2023-08-10 11:00 GMT
+```
+
+`--dateformat 'yyyy-MM-dd HH:mm ZZZZ' --timezone Pacific/Fiji`
+
+```diff
+- // Created 2023-08-10 11:00 GMT
++ // Created 2023-08-10 23:00 GMT+12:00
+```
+
+</details>
+<br/>
+
+## genericExtensions
+
+对泛型类型的扩展使用尖括号 (`extension Array<Foo>`)，而不是类型约束 (`extension Array where Element == Foo`)。
+
+选项 | 描述
+--- | ---
+`--generictypes` | Semicolon-delimited list of generic types and type parameters
+
+<details>
+<summary>示例</summary>
+
+```diff
+- extension Array where Element == Foo {}
+- extension Optional where Wrapped == Foo {}
+- extension Dictionary where Key == Foo, Value == Bar {}
+- extension Collection where Element == Foo {}
++ extension Array<Foo> {}
++ extension Optional<Foo> {}
++ extension Dictionary<Key, Value> {}
++ extension Collection<Foo> {}
+
+// With `typeSugar` also enabled:
+- extension Array where Element == Foo {}
+- extension Optional where Wrapped == Foo {}
+- extension Dictionary where Key == Foo, Value == Bar {}
++ extension [Foo] {}
++ extension Foo? {}
++ extension [Key: Value] {}
+
+// Also supports user-defined types!
+- extension LinkedList where Element == Foo {}
+- extension Reducer where
+-     State == FooState,
+-     Action == FooAction,
+-     Environment == FooEnvironment {}
++ extension LinkedList<Foo> {}
++ extension Reducer<FooState, FooAction, FooEnvironment> {}
+```
+
+</details>
+<br/>
+
+## headerFileName
+
+确保头部注释中的文件名与实际文件名匹配。
+
+## hoistAwait
+
+Move inline `await` keyword(s) to start of expression.
+
+选项 | 描述
+--- | ---
+`--asynccapturing` | List of functions with async @autoclosure arguments
+
+<details>
+<summary>示例</summary>
+
+```diff
+- greet(await forename, await surname)
++ await greet(forename, surname)
+```
+
+```diff
+- let foo = String(try await getFoo())
++ let foo = await String(try getFoo())
+```
+
+</details>
+<br/>
+
+## hoistPatternLet
+
+Reposition `let` or `var` bindings within pattern.
+
+选项 | 描述
+--- | ---
+`--patternlet` | let/var placement in patterns: "hoist" (default) or "inline"
+
+<details>
+<summary>示例</summary>
+
+```diff
+- (let foo, let bar) = baz()
++ let (foo, bar) = baz()
+```
+
+```diff
+- if case .foo(let bar, let baz) = quux {
+    // inner foo
+  }
+
++ if case let .foo(bar, baz) = quux {
+    // inner foo
+  }
+```
+
+</details>
+<br/>
+
+## hoistTry
+
+Move inline `try` keyword(s) to start of expression.
+
+选项 | 描述
+--- | ---
+`--throwcapturing` | List of functions with throwing @autoclosure arguments
+
+<details>
+<summary>示例</summary>
+
+```diff
+- foo(try bar(), try baz())
++ try foo(bar(), baz())
+```
+
+```diff
+- let foo = String(try await getFoo())
++ let foo = try String(await getFoo())
+```
+
+</details>
+<br/>
+
+## indent
+
+Indent code in accordance with the scope level.
+
+选项 | 描述
+--- | ---
+`--indent` | Number of spaces to indent, or "tab" to use tabs
+`--tabwidth` | The width of a tab character. Defaults to "unspecified"
+`--smarttabs` | Align code independently of tab width. defaults to "enabled"
+`--indentcase` | Indent cases inside a switch: "true" or "false" (default)
+`--ifdef` | #if indenting: "indent" (default), "no-indent" or "outdent"
+`--xcodeindentation` | Match Xcode indenting: "enabled" or "disabled" (default)
+`--indentstrings` | Indent multiline strings: "false" (default) or "true"
+
+<details>
+<summary>示例</summary>
+
+```diff
+  if x {
+-     // foo
+  } else {
+-     // bar
+-       }
+
+  if x {
++   // foo
+  } else {
++   // bar
++ }
+```
+
+```diff
+  let array = [
+    foo,
+-     bar,
+-       baz
+-   ]
+
+  let array = [
+    foo,
++   bar,
++   baz
++ ]
+```
+
+```diff
+  switch foo {
+-   case bar: break
+-   case baz: break
+  }
+
+  switch foo {
++ case bar: break
++ case baz: break
+  }
+```
+
+</details>
+<br/>
+
+## initCoderUnavailable
+
+Add `@available(*, unavailable)` attribute to required `init(coder:)` when
+it hasn't been implemented.
+
+选项 | 描述
+--- | ---
+`--initcodernil` | Replace fatalError with nil in unavailable init?(coder:)
+
+<details>
+<summary>示例</summary>
+
+```diff
++ @available(*, unavailable)
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+```
+
+</details>
+<br/>
+
+## leadingDelimiters
+
+Move leading delimiters to the end of the previous line.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- guard let foo = maybeFoo // first
+-     , let bar = maybeBar else { ... }
+
++ guard let foo = maybeFoo, // first
++      let bar = maybeBar else { ... }
+```
+
+</details>
+<br/>
+
+## linebreakAtEndOfFile
+
+在文件末尾添加空白行。
+
+## linebreaks
+
+对所有换行使用指定换行字符。
+
+选项 | 描述
+--- | ---
+`--linebreaks` | 换行字符: "cr", "crlf" or "lf" (default)
+
+## modifierOrder
+
+Use consistent ordering for member modifiers.
+
+选项 | 描述
+--- | ---
+`--modifierorder` | Comma-delimited list of modifiers in preferred order
+
+<details>
+<summary>示例</summary>
+
+```diff
+- lazy public weak private(set) var foo: UIView?
++ public private(set) lazy weak var foo: UIView?
+```
+
+```diff
+- final public override func foo()
++ override public final func foo()
+```
+
+```diff
+- convenience private init()
++ private convenience init()
+```
+
+**NOTE:** If the `--modifierorder` option isn't set, the default order will be:
+`override`, `private`, `fileprivate`, `internal`, `package`, `public`, `open`, `private(set)`, `fileprivate(set)`, `internal(set)`, `package(set)`, `public(set)`, `open(set)`, `final`, `dynamic`, `optional`, `required`, `convenience`, `indirect`, `isolated`, `nonisolated`, `nonisolated(unsafe)`, `lazy`, `weak`, `unowned`, `static`, `class`, `borrowing`, `consuming`, `mutating`, `nonmutating`, `prefix`, `infix`, `postfix`
+
+</details>
+<br/>
+
+## numberFormatting
+
+Use consistent grouping for numeric literals. Groups will be separated by `_`
+delimiters to improve readability. For each numeric type you can specify a group
+size (the number of digits in each group) and a threshold (the minimum number of
+digits in a number before grouping is applied).
+
+选项 | 描述
+--- | ---
+`--decimalgrouping` | Decimal grouping,threshold (default: 3,6) or "none", "ignore"
+`--binarygrouping` | Binary grouping,threshold (default: 4,8) or "none", "ignore"
+`--octalgrouping` | Octal grouping,threshold (default: 4,8) or "none", "ignore"
+`--hexgrouping` | Hex grouping,threshold (default: 4,8) or "none", "ignore"
+`--fractiongrouping` | Group digits after '.': "enabled" or "disabled" (default)
+`--exponentgrouping` | Group exponent digits: "enabled" or "disabled" (default)
+`--hexliteralcase` | Casing for hex literals: "uppercase" (default) or "lowercase"
+`--exponentcase` | Case of 'e' in numbers: "lowercase" or "uppercase" (default)
+
+<details>
+<summary>示例</summary>
+
+```diff
+- let color = 0xFF77A5
++ let color = 0xff77a5
+```
+
+```diff
+- let big = 123456.123
++ let big = 123_456.123
+```
+
+</details>
+<br/>
+
+## opaqueGenericParameters
+
+Use opaque generic parameters (`some Protocol`) instead of generic parameters
+with constraints (`T where T: Protocol`, etc) where equivalent. Also supports
+primary associated types for common standard library types, so definitions like
+`T where T: Collection, T.Element == Foo` are updated to `some Collection<Foo>`.
+
+选项 | 描述
+--- | ---
+`--someany` | Use `some Any` types: "true" (default) or "false"
+
+<details>
+<summary>示例</summary>
+
+```diff
+- func handle<T: Fooable>(_ value: T) {
++ func handle(_ value: some Fooable) {
+      print(value)
+  }
+
+- func handle<T>(_ value: T) where T: Fooable, T: Barable {
++ func handle(_ value: some Fooable & Barable) {
+      print(value)
+  }
+
+- func handle<T: Collection>(_ value: T) where T.Element == Foo {
++ func handle(_ value: some Collection<Foo>) {
+      print(value)
+  }
+
+// With `--someany enabled` (the default)
+- func handle<T>(_ value: T) {
++ func handle(_ value: some Any) {
+      print(value)
+  }
+```
+
+</details>
+<br/>
+
+## preferForLoop
+
+Convert functional `forEach` calls to for loops.
+
+选项 | 描述
+--- | ---
+`--anonymousforeach` | Convert anonymous forEach: "convert" (default) or "ignore"
+`--onelineforeach` | Convert one-line forEach: "convert" or "ignore" (default)
+
+<details>
+<summary>示例</summary>
+
+```diff
+  let strings = ["foo", "bar", "baaz"]
+- strings.forEach { placeholder in
++ for placeholder in strings {
+      print(placeholder)
+  }
+
+  // Supports anonymous closures
+- strings.forEach {
++ for string in strings {
+-     print($0)
++     print(string)
+  }
+
+- foo.item().bar[2].baazValues(option: true).forEach {
++ for baazValue in foo.item().bar[2].baazValues(option: true) {
+-     print($0)
++     print(baazValue)
+  }
+
+  // Doesn't affect long multiline functional chains
+  placeholderStrings
+      .filter { $0.style == .fooBar }
+      .map { $0.uppercased() }
+      .forEach { print($0) }
+```
+
+</details>
+<br/>
+
+## preferKeyPath
+
+Convert trivial `map { $0.foo }` closures to keyPath-based syntax.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- let barArray = fooArray.map { $0.bar }
++ let barArray = fooArray.map(\.bar)
+
+- let barArray = fooArray.compactMap { $0.optionalBar }
++ let barArray = fooArray.compactMap(\.optionalBar)
+```
+
+</details>
+<br/>
+
+## redundantBackticks
+
+Remove redundant backticks around identifiers.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- let `infix` = bar
++ let infix = bar
+```
+
+```diff
+- func foo(with `default`: Int) {}
++ func foo(with default: Int) {}
+```
+
+</details>
+<br/>
+
+## redundantBreak
+
+移除 switch case 中的冗余 `break`。
+
+<details>
+<summary>示例</summary>
+
+```diff
+  switch foo {
+    case bar:
+        print("bar")
+-       break
+    default:
+        print("default")
+-       break
+  }
+```
+
+</details>
+<br/>
+
+## redundantClosure
+
+Removes redundant closures bodies, containing a single statement,
+which are called immediately.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- let foo = { Foo() }()
++ let foo = Foo()
+```
+
+```diff
+- lazy var bar = {
+-     Bar(baaz: baaz,
+-         quux: quux)
+- }()
++ lazy var bar = Bar(baaz: baaz,
++                    quux: quux)
+```
+
+</details>
+<br/>
+
+## redundantExtensionACL
+
+移除冗余的访问控制修饰符。
+
+<details>
+<summary>示例</summary>
+
+```diff
+  public extension URL {
+-   public func queryParameter(_ name: String) -> String { ... }
+  }
+
+  public extension URL {
++   func queryParameter(_ name: String) -> String { ... }
+  }
+```
+
+</details>
+<br/>
+
+## redundantFileprivate
+
+Prefer `private` over `fileprivate` where equivalent.
+
+<details>
+<summary>示例</summary>
+
+```diff
+-  fileprivate let someConstant = "someConstant"
++  private let someConstant = "someConstant"
+```
+
+In Swift 4 and above, `fileprivate` can also be replaced with `private` for
+members that are only accessed from extensions in the same file:
+
+```diff
+  class Foo {
+-   fileprivate var foo = "foo"
++   private var foo = "foo"
+  }
+
+  extension Foo {
+    func bar() {
+      print(self.foo)
+    }
+  }
+```
+
+</details>
+<br/>
+
+## redundantGet
+
+移除计算属性中不需要的 `get`。
+
+<details>
+<summary>示例</summary>
+
+```diff
+  var foo: Int {
+-   get {
+-     return 5
+-   }
+  }
+
+  var foo: Int {
++   return 5
+  }
+```
+
+</details>
+<br/>
+
+## redundantInit
+
+移除不必要的显式 `init`。
+
+<details>
+<summary>示例</summary>
+
+```diff
+- String.init("text")
++ String("text")
+```
+
+</details>
+<br/>
+
+## redundantInternal
+
+移除冗余的 `internal` 访问控制修饰符。
+
+<details>
+<summary>示例</summary>
+
+```diff
+- internal class Foo {
++ class Foo {
+-     internal let bar: String
++     let bar: String
+
+-     internal func baaz() {}
++     func baaz() {}
+
+-     internal init() {
++     init() {
+          bar = "bar"
+      }
+  }
+```
+
+</details>
+<br/>
+
+## redundantLet
+
+Remove redundant `let`/`var` from ignored variables.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- let _ = foo()
++ _ = foo()
+```
+
+</details>
+<br/>
+
+## redundantLetError
+
+Remove redundant `let error` from `catch` clause.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- do { ... } catch let error { log(error) }
++ do { ... } catch { log(error) }
+```
+
+</details>
+<br/>
+
+## redundantNilInit
+
+Remove/insert redundant `nil` default value (Optional vars are nil by default).
+
+选项 | 描述
+--- | ---
+`--nilinit` | "remove" (default) redundant nil or "insert" missing nil
+
+<details>
+<summary>示例</summary>
+
+`--nilinit remove`
+
+```diff
+- var foo: Int? = nil
++ var foo: Int?
+```
+
+```diff
+// doesn't apply to `let` properties
+let foo: Int? = nil
+```
+
+```diff
+// doesn't affect non-nil initialization
+var foo: Int? = 0
+```
+
+`--nilinit insert`
+
+```diff
+- var foo: Int?
++ var foo: Int? = nil
+```
+
+</details>
+<br/>
+
+## redundantObjc
+
+Remove redundant `@objc` annotations.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- @objc @IBOutlet var label: UILabel!
++ @IBOutlet var label: UILabel!
+```
+
+```diff
+- @IBAction @objc func goBack() {}
++ @IBAction func goBack() {}
+```
+
+```diff
+- @objc @NSManaged private var foo: String?
++ @NSManaged private var foo: String?
+```
+
+</details>
+<br/>
+
+## redundantOptionalBinding
+
+Remove redundant identifiers in optional binding conditions.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- if let foo = foo {
++ if let foo {
+      print(foo)
+  }
+
+- guard let self = self else {
++ guard let self else {
+      return
+  }
+```
+
+</details>
+<br/>
+
+## redundantParens
+
+Remove redundant parentheses.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- if (foo == true) {}
++ if foo == true {}
+```
+
+```diff
+- while (i < bar.count) {}
++ while i < bar.count {}
+```
+
+```diff
+- queue.async() { ... }
++ queue.async { ... }
+```
+
+```diff
+- let foo: Int = ({ ... })()
++ let foo: Int = { ... }()
+```
+
+</details>
+<br/>
+
+## redundantPattern
+
+Remove redundant pattern matching parameter syntax.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- if case .foo(_, _) = bar {}
++ if case .foo = bar {}
+```
+
+```diff
+- let (_, _) = bar
++ let _ = bar
+```
+
+</details>
+<br/>
+
+## redundantRawValues
+
+Remove redundant raw string values for enum cases.
+
+<details>
+<summary>示例</summary>
+
+```diff
+  enum Foo: String {
+-   case bar = "bar"
+    case baz = "quux"
+  }
+
+  enum Foo: String {
++   case bar
+    case baz = "quux"
+  }
+```
+
+</details>
+<br/>
+
+## redundantReturn
+
+Remove unneeded `return` keyword.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- array.filter { return $0.foo == bar }
++ array.filter { $0.foo == bar }
+
+  // Swift 5.1+ (SE-0255)
+  var foo: String {
+-     return "foo"
++     "foo"
+  }
+
+  // Swift 5.9+ (SE-0380) and with conditionalAssignment rule enabled
+  func foo(_ condition: Bool) -> String {
+      if condition {
+-         return "foo"
++         "foo"
+      } else {
+-         return "bar"
++         "bar"
+      }
+  }
+```
+
+</details>
+<br/>
+
+## redundantSelf
+
+Insert/remove explicit `self` where applicable.
+
+选项 | 描述
+--- | ---
+`--self` | Explicit self: "insert", "remove" (default) or "init-only"
+`--selfrequired` | Comma-delimited list of functions with @autoclosure arguments
+
+<details>
+<summary>示例</summary>
+
+```diff
+  func foobar(foo: Int, bar: Int) {
+    self.foo = foo
+    self.bar = bar
+-   self.baz = 42
+  }
+
+  func foobar(foo: Int, bar: Int) {
+    self.foo = foo
+    self.bar = bar
++   baz = 42
+  }
+```
+
+In the rare case of functions with `@autoclosure` arguments, `self` may be
+required at the call site, but SwiftFormat is unable to detect this
+automatically. You can use the `--selfrequired` command-line option to specify
+a list of such methods, and the `redundantSelf` rule will then ignore them.
+
+An example of such a method is the `expect()` function in the Nimble unit
+testing framework (https://github.com/Quick/Nimble), which is common enough that
+SwiftFormat excludes it by default.
+
+There is also an option to always use explicit `self` but *only* inside `init`,
+by using `--self init-only`:
+
+```diff
+  init(foo: Int, bar: Int) {
+    self.foo = foo
+    self.bar = bar
+-   baz = 42
+  }
+
+  init(foo: Int, bar: Int) {
+    self.foo = foo
+    self.bar = bar
++   self.baz = 42
+  }
+```
+
+</details>
+<br/>
+
+## redundantStaticSelf
+
+Remove explicit `Self` where applicable.
+
+## redundantType
+
+Remove redundant type from variable declarations.
+
+选项 | 描述
+--- | ---
+`--redundanttype` | "inferred", "explicit", or "infer-locals-only" (default)
+
+<details>
+<summary>示例</summary>
+
+```diff
+// inferred
+- let view: UIView = UIView()
++ let view = UIView()
+
+// explicit
+- let view: UIView = UIView()
++ let view: UIView = .init()
+
+// infer-locals-only
+  class Foo {
+-     let view: UIView = UIView()
++     let view: UIView = .init()
+
+      func method() {
+-         let view: UIView = UIView()
++         let view = UIView()
+      }
+  }
+
+// Swift 5.9+, inferred (SE-0380)
+- let foo: Foo = if condition {
++ let foo = if condition {
+      Foo("foo")
+  } else {
+      Foo("bar")
+  }
+
+// Swift 5.9+, explicit (SE-0380)
+  let foo: Foo = if condition {
+-     Foo("foo")
++     .init("foo")
+  } else {
+-     Foo("bar")
++     .init("foo")
+  }
+```
+
+</details>
+<br/>
+
+## redundantTypedThrows
+
+Converts `throws(any Error)` to `throws`, and converts `throws(Never)` to non-throwing.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- func foo() throws(Never) -> Int {
++ func foo() -> Int {
+      return 0
+  }
+
+- func foo() throws(any Error) -> Int {
++ func foo() throws -> Int {
+      throw MyError.foo
+  }
+```
+
+</details>
+<br/>
+
+## redundantVoidReturnType
+
+Remove explicit `Void` return type.
+
+选项 | 描述
+--- | ---
+`--closurevoid` | Closure void returns: "remove" (default) or "preserve"
+
+<details>
+<summary>示例</summary>
+
+```diff
+- func foo() -> Void {
+    // returns nothing
+  }
+
++ func foo() {
+    // returns nothing
+  }
+```
+
+</details>
+<br/>
+
+## semicolons
+
+Remove semicolons.
+
+选项 | 描述
+--- | ---
+`--semicolons` | Allow semicolons: "never" or "inline" (default)
+
+<details>
+<summary>示例</summary>
+
+```diff
+- let foo = 5;
++ let foo = 5
+```
+
+```diff
+- let foo = 5; let bar = 6
++ let foo = 5
++ let bar = 6
+```
+
+```diff
+// semicolon is not removed if it would affect the behavior of the code
+return;
+goto(fail)
+```
+
+</details>
+<br/>
+
+## sortDeclarations
+
+Sorts the body of declarations with // swiftformat:sort
+and declarations between // swiftformat:sort:begin and
+// swiftformat:sort:end comments.
+
+<details>
+<summary>示例</summary>
+
+```diff
+  // swiftformat:sort
+  enum FeatureFlags {
+-     case upsellB
+-     case fooFeature
+-     case barFeature
+-     case upsellA(
+-         fooConfiguration: Foo,
+-         barConfiguration: Bar)
++     case barFeature
++     case fooFeature
++     case upsellA(
++         fooConfiguration: Foo,
++         barConfiguration: Bar)
++     case upsellB
+  }
+
+  enum FeatureFlags {
+      // swiftformat:sort:begin
+-     case upsellB
+-     case fooFeature
+-     case barFeature
+-     case upsellA(
+-         fooConfiguration: Foo,
+-         barConfiguration: Bar)
++     case barFeature
++     case fooFeature
++     case upsellA(
++         fooConfiguration: Foo,
++         barConfiguration: Bar)
++     case upsellB
+      // swiftformat:sort:end
+
+      var anUnsortedProperty: Foo {
+          Foo()
+      }
+  }
+```
+
+</details>
+<br/>
+
+## sortImports
+
+Sort import statements alphabetically.
+
+选项 | 描述
+--- | ---
+`--importgrouping` | "testable-first/last", "alpha" (default) or "length"
+
+<details>
+<summary>示例</summary>
+
+```diff
+- import Foo
+- import Bar
++ import Bar
++ import Foo
+```
+
+```diff
+- import B
+- import A
+- #if os(iOS)
+-   import Foo-iOS
+-   import Bar-iOS
+- #endif
++ import A
++ import B
++ #if os(iOS)
++   import Bar-iOS
++   import Foo-iOS
++ #endif
+```
+
+</details>
+<br/>
+
+## sortTypealiases
+
+Sort protocol composition typealiases alphabetically.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- typealias Placeholders = Foo & Bar & Baaz & Quux
++ typealias Placeholders = Baaz & Bar & Foo & Quux
+
+  typealias Dependencies
+-     = FooProviding
++     = BaazProviding
+      & BarProviding
+-     & BaazProviding
++     & FooProviding
+      & QuuxProviding
+```
+
+</details>
+<br/>
+
+## spaceAroundBraces
+
+Add or remove space around curly braces.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- foo.filter{ return true }.map{ $0 }
++ foo.filter { return true }.map { $0 }
+```
+
+```diff
+- foo( {} )
++ foo({})
+```
+
+</details>
+<br/>
+
+## spaceAroundBrackets
+
+Add or remove space around square brackets.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- foo as[String]
++ foo as [String]
+```
+
+```diff
+- foo = bar [5]
++ foo = bar[5]
+```
+
+</details>
+<br/>
+
+## spaceAroundComments
+
+Add space before and/or after comments.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- let a = 5// assignment
++ let a = 5 // assignment
+```
+
+```diff
+- func foo() {/* ... */}
++ func foo() { /* ... */ }
+```
+
+</details>
+<br/>
+
+## spaceAroundGenerics
+
+Remove space around angle brackets.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- Foo <Bar> ()
++ Foo<Bar>()
+```
+
+</details>
+<br/>
+
+## spaceAroundOperators
+
+Add or remove space around operators or delimiters.
+
+选项 | 描述
+--- | ---
+`--operatorfunc` | Spacing for operator funcs: "spaced" (default) or "no-space"
+`--nospaceoperators` | Comma-delimited list of operators without surrounding space
+`--ranges` | Spacing for ranges: "spaced" (default) or "no-space"
+`--typedelimiter` | "space-after" (default), "spaced" or "no-space"
+
+<details>
+<summary>示例</summary>
+
+```diff
+- foo . bar()
++ foo.bar()
+```
+
+```diff
+- a+b+c
++ a + b + c
+```
+
+```diff
+- func ==(lhs: Int, rhs: Int) -> Bool
++ func == (lhs: Int, rhs: Int) -> Bool
+```
+
+</details>
+<br/>
+
+## spaceAroundParens
+
+Add or remove space around parentheses.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- init (foo)
++ init(foo)
+```
+
+```diff
+- switch(x){
++ switch (x) {
+```
+
+</details>
+<br/>
+
+## spaceInsideBraces
+
+Add space inside curly braces.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- foo.filter {return true}
++ foo.filter { return true }
+```
+
+</details>
+<br/>
+
+## spaceInsideBrackets
+
+Remove space inside square brackets.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- [ 1, 2, 3 ]
++ [1, 2, 3]
+```
+
+</details>
+<br/>
+
+## spaceInsideComments
+
+Add leading and/or trailing space inside comments.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- let a = 5 //assignment
++ let a = 5 // assignment
+```
+
+```diff
+- func foo() { /*...*/ }
++ func foo() { /* ... */ }
+```
+
+</details>
+<br/>
+
+## spaceInsideGenerics
+
+Remove space inside angle brackets.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- Foo< Bar, Baz >
++ Foo<Bar, Baz>
+```
+
+</details>
+<br/>
+
+## spaceInsideParens
+
+Remove space inside parentheses.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- ( a, b)
++ (a, b)
+```
+
+</details>
+<br/>
+
+## strongOutlets
+
+Remove `weak` modifier from `@IBOutlet` properties.
+
+<details>
+<summary>示例</summary>
+
+As per Apple's recommendation
+(https://developer.apple.com/videos/play/wwdc2015/407/ @ 32:30).
+
+```diff
+- @IBOutlet weak var label: UILabel!
++ @IBOutlet var label: UILabel!
+```
+
+</details>
+<br/>
+
+## strongifiedSelf
+
+Remove backticks around `self` in Optional unwrap expressions.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- guard let `self` = self else { return }
++ guard let self = self else { return }
+```
+
+**NOTE:** assignment to un-escaped `self` is only supported in Swift 4.2 and
+above, so the `strongifiedSelf` rule is disabled unless the Swift version is
+set to 4.2 or above.
+
+</details>
+<br/>
+
+## todos
+
+Use correct formatting for `TODO:`, `MARK:` or `FIXME:` comments.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- /* TODO fix this properly */
++ /* TODO: fix this properly */
+```
+
+```diff
+- // MARK - UIScrollViewDelegate
++ // MARK: - UIScrollViewDelegate
+```
+
+</details>
+<br/>
+
+## trailingClosures
+
+Use trailing closure syntax where applicable.
+
+选项 | 描述
+--- | ---
+`--trailingclosures` | Comma-delimited list of functions that use trailing closures
+`--nevertrailing` | List of functions that should never use trailing closures
+
+<details>
+<summary>示例</summary>
+
+```diff
+- DispatchQueue.main.async(execute: { ... })
++ DispatchQueue.main.async {
+```
+
+```diff
+- let foo = bar.map({ ... }).joined()
++ let foo = bar.map { ... }.joined()
+```
+
+</details>
+<br/>
+
+## trailingCommas
+
+Add or remove trailing comma from the last item in a collection literal.
+
+选项 | 描述
+--- | ---
+`--commas` | Commas in collection literals: "always" (default) or "inline"
+
+<details>
+<summary>示例</summary>
+
+```diff
+  let array = [
+    foo,
+    bar,
+-   baz
+  ]
+
+  let array = [
+    foo,
+    bar,
++   baz,
+  ]
+```
+
+</details>
+<br/>
+
+## trailingSpace
+
+Remove trailing space at end of a line.
+
+选项 | 描述
+--- | ---
+`--trimwhitespace` | Trim trailing space: "always" (default) or "nonblank-lines"
+
+## typeSugar
+
+Prefer shorthand syntax for Arrays, Dictionaries and Optionals.
+
+选项 | 描述
+--- | ---
+`--shortoptionals` | Use ? for optionals "always" or "except-properties" (default)
+
+<details>
+<summary>示例</summary>
+
+```diff
+- var foo: Array<String>
++ var foo: [String]
+```
+
+```diff
+- var foo: Dictionary<String, Int>
++ var foo: [String: Int]
+```
+
+```diff
+- var foo: Optional<(Int) -> Void>
++ var foo: ((Int) -> Void)?
+```
+
+</details>
+<br/>
+
+## unusedArguments
+
+Mark unused function arguments with `_`.
+
+选项 | 描述
+--- | ---
+`--stripunusedargs` | "closure-only", "unnamed-only" or "always" (default)
+
+<details>
+<summary>示例</summary>
+
+```diff
+- func foo(bar: Int, baz: String) {
+    print("Hello \(baz)")
+  }
+
++ func foo(bar _: Int, baz: String) {
+    print("Hello \(baz)")
+  }
+```
+
+```diff
+- func foo(_ bar: Int) {
+    ...
+  }
+
++ func foo(_: Int) {
+    ...
+  }
+```
+
+```diff
+- request { response, data in
+    self.data += data
+  }
+
++ request { _, data in
+    self.data += data
+  }
+```
+
+</details>
+<br/>
+
+## void
+
+Use `Void` for type declarations and `()` for values.
+
+选项 | 描述
+--- | ---
+`--voidtype` | How void types are represented: "void" (default) or "tuple"
+
+<details>
+<summary>示例</summary>
+
+```diff
+- let foo: () -> ()
++ let foo: () -> Void
+```
+
+```diff
+- let bar: Void -> Void
++ let bar: () -> Void
+```
+
+```diff
+- let baz: (Void) -> Void
++ let baz: () -> Void
+```
+
+```diff
+- func quux() -> (Void)
++ func quux() -> Void
+```
+
+```diff
+- callback = { _ in Void() }
++ callback = { _ in () }
+```
+
+</details>
+<br/>
+
+## wrap
+
+Wrap lines that exceed the specified maximum width.
+
+选项 | 描述
+--- | ---
+`--maxwidth` | Maximum length of a line before wrapping. defaults to "none"
+`--nowrapoperators` | Comma-delimited list of operators that shouldn't be wrapped
+`--assetliterals` | Color/image literal width. "actual-width" or "visual-width"
+`--wrapternary` | Wrap ternary operators: "default", "before-operators"
+
+## wrapArguments
+
+对齐换行的函数参数或集合元素。
+
+选项 | 描述
+--- | ---
+`--wraparguments` | Wrap all arguments: "before-first", "after-first", "preserve"
+`--wrapparameters` | Wrap func params: "before-first", "after-first", "preserve"
+`--wrapcollections` | Wrap array/dict: "before-first", "after-first", "preserve"
+`--closingparen` | Closing paren position: "balanced" (default) or "same-line"
+`--callsiteparen` | Closing paren at call sites: "balanced" or "same-line"
+`--wrapreturntype` | Wrap return type: "if-multiline", "preserve" (default)
+`--wrapconditions` | Wrap conditions: "before-first", "after-first", "preserve"
+`--wraptypealiases` | Wrap typealiases: "before-first", "after-first", "preserve"
+`--wrapeffects` | Wrap effects: "if-multiline", "never", "preserve"
+
+<details>
+<summary>示例</summary>
+
+**NOTE:** For backwards compatibility with previous versions, if no value is
+provided for `--wrapparameters`, the value for `--wraparguments` will be used.
+
+`--wraparguments before-first`
+
+```diff
+- foo(bar: Int,
+-     baz: String)
+
++ foo(
++   bar: Int,
++   baz: String
++ )
+```
+
+```diff
+- class Foo<Bar,
+-           Baz>
+
++ class Foo<
++   Bar,
++   Baz
++ >
+```
+
+`--wrapparameters after-first`
+
+```diff
+- func foo(
+-   bar: Int,
+-   baz: String
+- ) {
+    ...
+  }
+
++ func foo(bar: Int,
++          baz: String)
++ {
+    ...
+  }
+```
+
+`--wrapcollections before-first`:
+
+```diff
+- let foo = [bar,
+             baz,
+-            quuz]
+
++ let foo = [
++   bar,
+    baz,
++   quuz
++ ]
+```
+
+</details>
+<br/>
+
+## wrapAttributes
+
+将 @attributes 属性换到单独一行，或保持在同一行。
+
+选项 | 描述
+--- | ---
+`--funcattributes` | Function @attributes: "preserve", "prev-line", or "same-line"
+`--typeattributes` | Type @attributes: "preserve", "prev-line", or "same-line"
+`--storedvarattrs` | Stored var @attribs: "preserve", "prev-line", or "same-line"
+`--computedvarattrs` | Computed var @attribs: "preserve", "prev-line", "same-line"
+`--complexattrs` | Complex @attributes: "preserve", "prev-line", or "same-line"
+`--noncomplexattrs` | List of @attributes to exclude from complexattrs rule
+
+<details>
+<summary>示例</summary>
+
+`--funcattributes prev-line`
+
+```diff
+- @objc func foo() {}
+
++ @objc
++ func foo() { }
+```
+
+`--funcattributes same-line`
+
+```diff
+- @objc
+- func foo() { }
+
++ @objc func foo() {}
+```
+
+`--typeattributes prev-line`
+
+```diff
+- @objc class Foo {}
+
++ @objc
++ class Foo { }
+```
+
+`--typeattributes same-line`
+
+```diff
+- @objc
+- enum Foo { }
+
++ @objc enum Foo {}
+```
+
+</details>
+<br/>
+
+## wrapLoopBodies
+
+将内联循环语句的主题换到新行。
+
+<details>
+<summary>示例</summary>
+
+```diff
+- for foo in array { print(foo) }
++ for foo in array {
++     print(foo)
++ }
+```
+
+```diff
+- while let foo = bar.next() { print(foo) }
++ while let foo = bar.next() {
++     print(foo)
++ }
+```
+
+</details>
+<br/>
+
+## wrapMultilineStatementBraces
+
+将多行语句的左大括号换到新行。
+
+<details>
+<summary>示例</summary>
+
+```diff
+  if foo,
+-   bar {
+    // ...
+  }
+
+  if foo,
++   bar
++ {
+    // ...
+  }
+```
+
+```diff
+  guard foo,
+-   bar else {
+    // ...
+  }
+
+  guard foo,
++   bar else
++ {
+    // ...
+  }
+```
+
+```diff
+  func foo(
+    bar: Int,
+-   baz: Int) {
+    // ...
+  }
+
+  func foo(
+    bar: Int,
++   baz: Int)
++ {
+    // ...
+  }
+```
+
+```diff
+  class Foo: NSObject,
+-   BarProtocol {
+    // ...
+  }
+
+  class Foo: NSObject,
++   BarProtocol
++ {
+    // ...
+  }
+```
+
+</details>
+<br/>
+
+**NOTE:** 存疑，需要确定
+
+## wrapSingleLineComments
+
+将超过 `--maxwidth` 的单行注释 `//` 换行。
+
+## yodaConditions
+
+优先将常量放在表达式的右侧。
+
+选项 | 描述
+--- | ---
+`--yodaswap` | Swap yoda values: "always" (default) or "literals-only"
+
+# 默认关闭规则
+
+## acronyms
+
+当首字母大写时，将缩写词也大写。
+
+选项 | 描述
+--- | ---
+`--acronyms` | 自动大写的首字母，默认是 "ID,URL,UUID"
+
+<details>
+<summary>示例</summary>
+
+```diff
+- let destinationUrl: URL
+- let urlRouter: UrlRouter
+- let screenId: String
+- let entityUuid: UUID
+
++ let destinationURL: URL
++ let urlRouter: URLRouter
++ let screenID: String
++ let entityUUID: UUID
+```
+
+</details>
+<br/>
+
+## blankLineAfterSwitchCase
+
+在多行的 switch case 语句后插入一个空白行（最后一个 case 除外，它后面跟右大括号）。
+
+<details>
+<summary>示例</summary>
+
+```diff
+  func handle(_ action: SpaceshipAction) {
+      switch action {
+      case .engageWarpDrive:
+          navigationComputer.destination = targetedDestination
+          await warpDrive.spinUp()
+          warpDrive.activate()
++
+      case let .scanPlanet(planet):
+          scanner.target = planet
+          scanner.scanAtmosphere()
+          scanner.scanBiosphere()
+          scanner.scanForArticialLife()
++
+      case .handleIncomingEnergyBlast:
+          await energyShields.prepare()
+          energyShields.engage()
+      }
+  }
+```
+
+</details>
+<br/>
+
+## blankLinesBetweenImports
+
+移除 import 语句之间的空白行。
+
+<details>
+<summary>示例</summary>
+
+```diff
+  import A
+-
+  import B
+  import C
+-
+-
+  @testable import D
+  import E
+```
+
+</details>
+<br/>
+
+## blockComments
+
+将块注释转换为连续的单行注释。
+
+<details>
+<summary>示例</summary>
+
+```diff
+- /*
+-  * foo
+-  * bar
+-  */
+
++ // foo
++ // bar
+```
+
+```diff
+- /**
+-  * foo
+-  * bar
+-  */
+
++ /// foo
++ /// bar
+```
+
+</details>
+<br/>
+
+## docComments
+
+对 API 声明使用文档注释 `///`，否则使用常规注释 `//`。
+
+选项 | 描述
+--- | ---
+`--doccomments` | 文档注释: "before-declarations" (default) or "preserve"
+
+<details>
+<summary>示例</summary>
+
+```diff
+- // A placeholder type used to demonstrate syntax rules
++ /// A placeholder type used to demonstrate syntax rules
+  class Foo {
+-     // This function doesn't really do anything
++     /// This function doesn't really do anything
+      func bar() {
+-         /// TODO: implement Foo.bar() algorithm
++         // TODO: implement Foo.bar() algorithm
+      }
+  }
+```
+
+</details>
+<br/>
+
+## isEmpty
+
+Prefer `isEmpty` over comparing `count` against zero.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- if foo.count == 0 {
++ if foo.isEmpty {
+
+- if foo.count > 0 {
++ if !foo.isEmpty {
+
+- if foo?.count == 0 {
++ if foo?.isEmpty == true {
+```
+
+***NOTE:*** In rare cases, the `isEmpty` rule may insert an `isEmpty` call for
+a type that doesn't implement that property, breaking the program. For this
+reason, the rule is disabled by default, and must be manually enabled via the
+`--enable isEmpty` option.
+
+</details>
+<br/>
+
+## markTypes
+
+Add a MARK comment before top-level types and extensions.
+
+选项 | 描述
+--- | ---
+`--marktypes` | Mark types "always" (default), "never", "if-not-empty"
+`--typemark` | Template for type mark comments. Defaults to "MARK: - %t"
+`--markextensions` | Mark extensions "always" (default), "never", "if-not-empty"
+`--extensionmark` | Mark for standalone extensions. Defaults to "MARK: - %t + %c"
+`--groupedextension` | Mark for extension grouped with extended type. ("MARK: %c")
+
+<details>
+<summary>示例</summary>
+
+```diff
++ // MARK: - FooViewController
++
+ final class FooViewController: UIViewController { }
+
++ // MARK: UICollectionViewDelegate
++
+ extension FooViewController: UICollectionViewDelegate { }
+
++ // MARK: - String + FooProtocol
++
+ extension String: FooProtocol { }
+```
+
+</details>
+<br/>
+
+## noExplicitOwnership
+
+Don't use explicit ownership modifiers (borrowing / consuming).
+
+<details>
+<summary>示例</summary>
+
+```diff
+- borrowing func foo(_ bar: consuming Bar) { ... }
++ func foo(_ bar: Bar) { ... }
+```
+
+</details>
+<br/>
+
+## organizeDeclarations
+
+Organize declarations within class, struct, enum, actor, and extension bodies.
+
+选项 | 描述
+--- | ---
+`--categorymark` | Template for category mark comments. Defaults to "MARK: %c"
+`--markcategories` | Insert MARK comments between categories (true by default)
+`--beforemarks` | Declarations placed before first mark (e.g. `typealias,struct`)
+`--lifecycle` | Names of additional Lifecycle methods (e.g. `viewDidLoad`)
+`--organizetypes` | Declarations to organize (default: `class,actor,struct,enum`)
+`--structthreshold` | Minimum line count to organize struct body. Defaults to 0
+`--classthreshold` | Minimum line count to organize class body. Defaults to 0
+`--enumthreshold` | Minimum line count to organize enum body. Defaults to 0
+`--extensionlength` | Minimum line count to organize extension body. Defaults to 0
+`--organizationmode` | Organize declarations by "visibility" (default) or "type"
+
+<details>
+<summary>示例</summary>
+
+`--organizationmode visibility` (default)
+
+```diff
+  public class Foo {
+-     public func c() -> String {}
+-
+-     public let a: Int = 1
+-     private let g: Int = 2
+-     let e: Int = 2
+-     public let b: Int = 3
+-
+-     public func d() {}
+-     func f() {}
+-     init() {}
+-     deinit() {}
+ }
+
+  public class Foo {
++
++     // MARK: Lifecycle
++
++     init() {}
++     deinit() {}
++
++     // MARK: Public
++
++     public let a: Int = 1
++     public let b: Int = 3
++
++     public func c() -> String {}
++     public func d() {}
++
++     // MARK: Internal
++
++     let e: Int = 2
++
++     func f() {}
++
++     // MARK: Private
++
++     private let g: Int = 2
++
+ }
+```
+
+`--organizationmode type`
+
+```diff
+  public class Foo {
+-     public func c() -> String {}
+-
+-     public let a: Int = 1
+-     private let g: Int = 2
+-     let e: Int = 2
+-     public let b: Int = 3
+-
+-     public func d() {}
+-     func f() {}
+-     init() {}
+-     deinit() {}
+ }
+
+  public class Foo {
++
++     // MARK: Properties
++
++     public let a: Int = 1
++     public let b: Int = 3
++
++     let e: Int = 2
++
++     private let g: Int = 2
++
++     // MARK: Lifecycle
++
++     init() {}
++     deinit() {}
++
++     // MARK: Functions
++
++     public func c() -> String {}
++     public func d() {}
++
+ }
+```
+
+</details>
+<br/>
+
+## redundantProperty
+
+Simplifies redundant property definitions that are immediately returned.
+
+<details>
+<summary>示例</summary>
+
+```diff
+  func foo() -> Foo {
+-   let foo = Foo()
+-   return foo
++   return Foo()
+  }
+```
+
+</details>
+<br/>
+
+## sortSwitchCases
+
+Sort switch cases alphabetically.
+
+## wrapConditionalBodies
+
+Wrap the bodies of inline conditional statements onto a new line.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- guard let foo = bar else { return baz }
++ guard let foo = bar else {
++     return baz
++ }
+```
+
+```diff
+- if foo { return bar }
++ if foo {
++    return bar
++ }
+```
+
+</details>
+<br/>
+
+## wrapEnumCases
+
+Rewrite comma-delimited enum cases to one case per line.
+
+选项 | 描述
+--- | ---
+`--wrapenumcases` | Wrap enum cases: "always" (default) or "with-values"
+
+<details>
+<summary>示例</summary>
+
+```diff
+  enum Foo {
+-   case bar, baz
+  }
+
+  enum Foo {
++   case bar
++   case baz
+  }
+```
+
+</details>
+<br/>
+
+## wrapMultilineConditionalAssignment
+
+Wrap multiline conditional assignment expressions after the assignment operator.
+
+<details>
+<summary>示例</summary>
+
+```diff
+- let planetLocation = if let star = planet.star {
+-     "The \(star.name) system"
+- } else {
+-     "Rogue planet"
+- }
++ let planetLocation =
++     if let star = planet.star {
++         "The \(star.name) system"
++     } else {
++         "Rogue planet"
++     }
+```
+
+</details>
+<br/>
+
+## wrapSwitchCases
+
+Wrap comma-delimited switch cases onto multiple lines.
+
+<details>
+<summary>示例</summary>
+
+```diff
+  switch foo {
+-   case .bar, .baz:
+      break
+  }
+
+  switch foo {
++   case .foo,
++        .bar:
+      break
+  }
+```
+
+</details>
+<br/>
+
+# 已弃用规则
+
+## sortedImports
+
+Sort import statements alphabetically.
+
+*Note: sortedImports rule is deprecated. Use sortImports instead.*
+
+## sortedSwitchCases
+
+Sort switch cases alphabetically.
+
+*Note: sortedSwitchCases rule is deprecated. Use sortSwitchCases instead.*
+
+## specifiers
+
+Use consistent ordering for member modifiers.
+
+*Note: specifiers rule is deprecated. Use modifierOrder instead.*
