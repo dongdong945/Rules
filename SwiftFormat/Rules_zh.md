@@ -163,7 +163,7 @@
 
 ## applicationMain
 
-在 Swift 5.3 及以上，使用 `@main` 替代过时的 `@UIApplicationMain` 和 `@NSApplicationMain` 特性。
+在 Swift 5.3 及以上版本中，使用 `@main` 替代过时的 `@UIApplicationMain` 和 `@NSApplicationMain` 特性。
 
 ## assertionFailures
 
@@ -693,6 +693,8 @@
 </details>
 <br/>
 
+**NOTE:** 待讨论
+
 ## fileHeader
 
 对所有文件使用指定的源文件头模版。
@@ -842,7 +844,7 @@ standard library.
 
 ## hoistAwait
 
-Move inline `await` keyword(s) to start of expression.
+将内联的 `await` 关键字移动到表达式开头。
 
 选项 | 描述
 --- | ---
@@ -866,7 +868,7 @@ Move inline `await` keyword(s) to start of expression.
 
 ## hoistPatternLet
 
-Reposition `let` or `var` bindings within pattern.
+在模式匹配中重新定位 `let` 或 `var` 绑定。
 
 选项 | 描述
 --- | ---
@@ -893,9 +895,11 @@ Reposition `let` or `var` bindings within pattern.
 </details>
 <br/>
 
+**NOTE:** 待讨论
+
 ## hoistTry
 
-Move inline `try` keyword(s) to start of expression.
+将内联的 `try` 关键字移动到表达式开头。
 
 选项 | 描述
 --- | ---
@@ -919,7 +923,7 @@ Move inline `try` keyword(s) to start of expression.
 
 ## indent
 
-Indent code in accordance with the scope level.
+根据作用域级别缩进代码。
 
 选项 | 描述
 --- | ---
@@ -979,12 +983,11 @@ Indent code in accordance with the scope level.
 
 ## initCoderUnavailable
 
-Add `@available(*, unavailable)` attribute to required `init(coder:)` when
-it hasn't been implemented.
+在未实现的 `init(coder:)` 构造函数上添加 `@available(*, unavailable)` 属性。
 
 选项 | 描述
 --- | ---
-`--initcodernil` | Replace fatalError with nil in unavailable init?(coder:)
+`--initcodernil` | 在不可用的 `` 构造函数中，将 fatalError 替换为 nil。
 
 <details>
 <summary>示例</summary>
@@ -994,6 +997,12 @@ it hasn't been implemented.
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+
+// --initcodernil
++ @available(*, unavailable)
+  required init?(coder aDecoder: NSCoder) {
+    nil
+  }
 ```
 
 </details>
@@ -1001,7 +1010,7 @@ it hasn't been implemented.
 
 ## leadingDelimiters
 
-Move leading delimiters to the end of the previous line.
+将开头的分隔符移动到上一行的末尾。
 
 <details>
 <summary>示例</summary>
@@ -1055,7 +1064,7 @@ Use consistent ordering for member modifiers.
 + private convenience init()
 ```
 
-**NOTE:** If the `--modifierorder` option isn't set, the default order will be:
+**NOTE:** 如果 `--modifierorder` 选项未设置，默认排序为:
 `override`, `private`, `fileprivate`, `internal`, `package`, `public`, `open`, `private(set)`, `fileprivate(set)`, `internal(set)`, `package(set)`, `public(set)`, `open(set)`, `final`, `dynamic`, `optional`, `required`, `convenience`, `indirect`, `isolated`, `nonisolated`, `nonisolated(unsafe)`, `lazy`, `weak`, `unowned`, `static`, `class`, `borrowing`, `consuming`, `mutating`, `nonmutating`, `prefix`, `infix`, `postfix`
 
 </details>
@@ -1063,10 +1072,7 @@ Use consistent ordering for member modifiers.
 
 ## numberFormatting
 
-Use consistent grouping for numeric literals. Groups will be separated by `_`
-delimiters to improve readability. For each numeric type you can specify a group
-size (the number of digits in each group) and a threshold (the minimum number of
-digits in a number before grouping is applied).
+对数字字面量进行一致分组，使用 `_` 作为分隔符以提高可读性。你可以为每种数值类型指定分组大小（每组的位数）和阈值（在达到最小位数时应用分组）。
 
 选项 | 描述
 --- | ---
@@ -1095,12 +1101,11 @@ digits in a number before grouping is applied).
 </details>
 <br/>
 
+**NOTE:** 待讨论
+
 ## opaqueGenericParameters
 
-Use opaque generic parameters (`some Protocol`) instead of generic parameters
-with constraints (`T where T: Protocol`, etc) where equivalent. Also supports
-primary associated types for common standard library types, so definitions like
-`T where T: Collection, T.Element == Foo` are updated to `some Collection<Foo>`.
+使用不透明的泛型参数 `(some Protocol)` 替代具有约束的泛型参数 `(T where T: Protocol)`，并支持使用主要关联类型来简化标准库类型的定义。
 
 选项 | 描述
 --- | ---
@@ -1177,9 +1182,11 @@ Convert functional `forEach` calls to for loops.
 </details>
 <br/>
 
+**NOTES:** 待讨论
+
 ## preferKeyPath
 
-Convert trivial `map { $0.foo }` closures to keyPath-based syntax.
+将简单的 `map { $0.foo }` 闭包转换为基于 keyPath 的语法。
 
 <details>
 <summary>示例</summary>
@@ -1197,7 +1204,7 @@ Convert trivial `map { $0.foo }` closures to keyPath-based syntax.
 
 ## redundantBackticks
 
-Remove redundant backticks around identifiers.
+移除标识符周围不必要的反引号。
 
 <details>
 <summary>示例</summary>
@@ -1238,8 +1245,7 @@ Remove redundant backticks around identifiers.
 
 ## redundantClosure
 
-Removes redundant closures bodies, containing a single statement,
-which are called immediately.
+移除包含单个语句的立即调用闭包体。
 
 <details>
 <summary>示例</summary>
@@ -1283,7 +1289,7 @@ which are called immediately.
 
 ## redundantFileprivate
 
-Prefer `private` over `fileprivate` where equivalent.
+在等效的情况下，优先使用 `private` 而不是 `fileprivate`。
 
 <details>
 <summary>示例</summary>
@@ -1293,8 +1299,7 @@ Prefer `private` over `fileprivate` where equivalent.
 +  private let someConstant = "someConstant"
 ```
 
-In Swift 4 and above, `fileprivate` can also be replaced with `private` for
-members that are only accessed from extensions in the same file:
+在 Swift 4.0 及以上版本中，当成员仅在同一个文件中的扩展中访问时，可以使用 `private` 来替代 `fileprivate`:
 
 ```diff
   class Foo {
@@ -1377,7 +1382,7 @@ members that are only accessed from extensions in the same file:
 
 ## redundantLet
 
-Remove redundant `let`/`var` from ignored variables.
+移除被忽略变量前的 `let` / `var`。
 
 <details>
 <summary>示例</summary>
@@ -1392,7 +1397,7 @@ Remove redundant `let`/`var` from ignored variables.
 
 ## redundantLetError
 
-Remove redundant `let error` from `catch` clause.
+移除 `catch` 语句中冗余的 `let error`。
 
 <details>
 <summary>示例</summary>
@@ -1407,7 +1412,7 @@ Remove redundant `let error` from `catch` clause.
 
 ## redundantNilInit
 
-Remove/insert redundant `nil` default value (Optional vars are nil by default).
+移除/插入冗余的 `nil` 默认值（可选类型变量默认值是 nil）
 
 选项 | 描述
 --- | ---
@@ -1445,7 +1450,7 @@ var foo: Int? = 0
 
 ## redundantObjc
 
-Remove redundant `@objc` annotations.
+移除冗余的 `@objc` 注释。
 
 <details>
 <summary>示例</summary>
@@ -1470,7 +1475,7 @@ Remove redundant `@objc` annotations.
 
 ## redundantOptionalBinding
 
-Remove redundant identifiers in optional binding conditions.
+移除可选绑定条件中冗余的标识符。
 
 <details>
 <summary>示例</summary>
@@ -1492,7 +1497,7 @@ Remove redundant identifiers in optional binding conditions.
 
 ## redundantParens
 
-Remove redundant parentheses.
+移除冗余的括号。
 
 <details>
 <summary>示例</summary>
@@ -1522,7 +1527,7 @@ Remove redundant parentheses.
 
 ## redundantPattern
 
-Remove redundant pattern matching parameter syntax.
+移除冗余的模式匹配参数语法。
 
 <details>
 <summary>示例</summary>
@@ -1542,7 +1547,7 @@ Remove redundant pattern matching parameter syntax.
 
 ## redundantRawValues
 
-Remove redundant raw string values for enum cases.
+移除枚举中冗余的原始字符串值。
 
 <details>
 <summary>示例</summary>
@@ -1564,7 +1569,7 @@ Remove redundant raw string values for enum cases.
 
 ## redundantReturn
 
-Remove unneeded `return` keyword.
+移除不需要的 `return` 关键字。
 
 <details>
 <summary>示例</summary>
@@ -1596,11 +1601,11 @@ Remove unneeded `return` keyword.
 
 ## redundantSelf
 
-Insert/remove explicit `self` where applicable.
+根据适用情况插入或移除显式的 `self`。
 
 选项 | 描述
 --- | ---
-`--self` | Explicit self: "insert", "remove" (default) or "init-only"
+`--self` | 显式的 `self`: "insert", "remove" (default) or "init-only"
 `--selfrequired` | Comma-delimited list of functions with @autoclosure arguments
 
 <details>
@@ -1651,11 +1656,11 @@ by using `--self init-only`:
 
 ## redundantStaticSelf
 
-Remove explicit `Self` where applicable.
+移除不必要的显式 `Self`。
 
 ## redundantType
 
-Remove redundant type from variable declarations.
+移除变量声明中的冗余类型。
 
 选项 | 描述
 --- | ---
@@ -1707,7 +1712,7 @@ Remove redundant type from variable declarations.
 
 ## redundantTypedThrows
 
-Converts `throws(any Error)` to `throws`, and converts `throws(Never)` to non-throwing.
+将 `throws(any Error)` 转换为 `throws`，并将 `throws(Never)` 转换为非抛出异常函数。
 
 <details>
 <summary>示例</summary>
@@ -1729,7 +1734,7 @@ Converts `throws(any Error)` to `throws`, and converts `throws(Never)` to non-th
 
 ## redundantVoidReturnType
 
-Remove explicit `Void` return type.
+移除冗余的 `Void` 返回类型。
 
 选项 | 描述
 --- | ---
@@ -1753,7 +1758,7 @@ Remove explicit `Void` return type.
 
 ## semicolons
 
-Remove semicolons.
+移除不必要的分号。
 
 选项 | 描述
 --- | ---
@@ -1784,9 +1789,7 @@ goto(fail)
 
 ## sortDeclarations
 
-Sorts the body of declarations with // swiftformat:sort
-and declarations between // swiftformat:sort:begin and
-// swiftformat:sort:end comments.
+对带有 // swiftformat:sort 注释的声明和在 // swiftformat:sort:begin 与 // swiftformat:sort:end 注释之间的声明进行排序。
 
 <details>
 <summary>示例</summary>
@@ -1835,7 +1838,7 @@ and declarations between // swiftformat:sort:begin and
 
 ## sortImports
 
-Sort import statements alphabetically.
+按字母顺序对 `import` 语句进行排序。
 
 选项 | 描述
 --- | ---
@@ -1871,7 +1874,7 @@ Sort import statements alphabetically.
 
 ## sortTypealiases
 
-Sort protocol composition typealiases alphabetically.
+按字母顺序对协议组合类型别名进行排序。
 
 <details>
 <summary>示例</summary>
@@ -1894,7 +1897,7 @@ Sort protocol composition typealiases alphabetically.
 
 ## spaceAroundBraces
 
-Add or remove space around curly braces.
+在大括号周围添加或移除空格。
 
 <details>
 <summary>示例</summary>
@@ -1914,7 +1917,7 @@ Add or remove space around curly braces.
 
 ## spaceAroundBrackets
 
-Add or remove space around square brackets.
+在中括号周围添加或移除空格。
 
 <details>
 <summary>示例</summary>
@@ -1934,7 +1937,7 @@ Add or remove space around square brackets.
 
 ## spaceAroundComments
 
-Add space before and/or after comments.
+在注释前后添加或移除空格。
 
 <details>
 <summary>示例</summary>
@@ -1954,7 +1957,7 @@ Add space before and/or after comments.
 
 ## spaceAroundGenerics
 
-Remove space around angle brackets.
+移除尖括号周围的空格。
 
 <details>
 <summary>示例</summary>
@@ -1969,7 +1972,7 @@ Remove space around angle brackets.
 
 ## spaceAroundOperators
 
-Add or remove space around operators or delimiters.
+在运算符或分隔符周围添加或移除空格。
 
 选项 | 描述
 --- | ---
@@ -2001,7 +2004,7 @@ Add or remove space around operators or delimiters.
 
 ## spaceAroundParens
 
-Add or remove space around parentheses.
+在括号周围添加或移除空格。
 
 <details>
 <summary>示例</summary>
@@ -2019,9 +2022,11 @@ Add or remove space around parentheses.
 </details>
 <br/>
 
+**NOTES:** 待讨论
+
 ## spaceInsideBraces
 
-Add space inside curly braces.
+在大括号内添加空格。
 
 <details>
 <summary>示例</summary>
@@ -2036,7 +2041,7 @@ Add space inside curly braces.
 
 ## spaceInsideBrackets
 
-Remove space inside square brackets.
+移除中括号内的空格。
 
 <details>
 <summary>示例</summary>
@@ -2051,7 +2056,7 @@ Remove space inside square brackets.
 
 ## spaceInsideComments
 
-Add leading and/or trailing space inside comments.
+在注释的开头和/或结尾添加空格。
 
 <details>
 <summary>示例</summary>
@@ -2071,7 +2076,7 @@ Add leading and/or trailing space inside comments.
 
 ## spaceInsideGenerics
 
-Remove space inside angle brackets.
+移除尖括号内的空格。
 
 <details>
 <summary>示例</summary>
@@ -2086,7 +2091,7 @@ Remove space inside angle brackets.
 
 ## spaceInsideParens
 
-Remove space inside parentheses.
+移除括号内的空格。
 
 <details>
 <summary>示例</summary>
@@ -2101,7 +2106,7 @@ Remove space inside parentheses.
 
 ## strongOutlets
 
-Remove `weak` modifier from `@IBOutlet` properties.
+从 `@IBOutlet` 属性中移除 `weak` 修饰符。
 
 <details>
 <summary>示例</summary>
@@ -2119,7 +2124,7 @@ As per Apple's recommendation
 
 ## strongifiedSelf
 
-Remove backticks around `self` in Optional unwrap expressions.
+在可选解包表达式中移除围绕 `self` 的反引号。
 
 <details>
 <summary>示例</summary>
@@ -2129,16 +2134,14 @@ Remove backticks around `self` in Optional unwrap expressions.
 + guard let self = self else { return }
 ```
 
-**NOTE:** assignment to un-escaped `self` is only supported in Swift 4.2 and
-above, so the `strongifiedSelf` rule is disabled unless the Swift version is
-set to 4.2 or above.
+**NOTE:** 在 Swift 4.2 及以上版本中，允许对未转义的 `self` 进行赋值操作，因此 `strongifiedSelf` 规则只有在 Swift 4.2 或更高时才启用。
 
 </details>
 <br/>
 
 ## todos
 
-Use correct formatting for `TODO:`, `MARK:` or `FIXME:` comments.
+使用正确的格式来标记 `TODO:`，`MARK:` 或 `FIXME:` 注释。
 
 <details>
 <summary>示例</summary>
@@ -2158,7 +2161,7 @@ Use correct formatting for `TODO:`, `MARK:` or `FIXME:` comments.
 
 ## trailingClosures
 
-Use trailing closure syntax where applicable.
+在适用的地方使用尾随闭包语法。
 
 选项 | 描述
 --- | ---
@@ -2183,11 +2186,11 @@ Use trailing closure syntax where applicable.
 
 ## trailingCommas
 
-Add or remove trailing comma from the last item in a collection literal.
+在集合字面量的最后一项后添加或移除尾随逗号。
 
 选项 | 描述
 --- | ---
-`--commas` | Commas in collection literals: "always" (default) or "inline"
+`--commas` | 在集合字面量中使用正确的逗号: "always" (default) or "inline"
 
 <details>
 <summary>示例</summary>
@@ -2209,9 +2212,11 @@ Add or remove trailing comma from the last item in a collection literal.
 </details>
 <br/>
 
+**NOTE:** 待确定
+
 ## trailingSpace
 
-Remove trailing space at end of a line.
+移除行尾的空格。
 
 选项 | 描述
 --- | ---
@@ -2219,7 +2224,7 @@ Remove trailing space at end of a line.
 
 ## typeSugar
 
-Prefer shorthand syntax for Arrays, Dictionaries and Optionals.
+优先使用数组、字典和可选类型的简写语法。
 
 选项 | 描述
 --- | ---
@@ -2248,7 +2253,7 @@ Prefer shorthand syntax for Arrays, Dictionaries and Optionals.
 
 ## unusedArguments
 
-Mark unused function arguments with `_`.
+用 `_` 标记未使用函数参数。
 
 选项 | 描述
 --- | ---
@@ -2292,7 +2297,7 @@ Mark unused function arguments with `_`.
 
 ## void
 
-Use `Void` for type declarations and `()` for values.
+在类型声明中使用 Void，在值表示中使用 ()。
 
 选项 | 描述
 --- | ---
@@ -2331,7 +2336,7 @@ Use `Void` for type declarations and `()` for values.
 
 ## wrap
 
-Wrap lines that exceed the specified maximum width.
+将超过指定最大宽度的行进行换行。
 
 选项 | 描述
 --- | ---
@@ -2420,7 +2425,7 @@ provided for `--wrapparameters`, the value for `--wraparguments` will be used.
 
 ## wrapAttributes
 
-将 @attributes 属性换到单独一行，或保持在同一行。
+将 `@attributes` 属性换到单独一行，或保持在同一行。
 
 选项 | 描述
 --- | ---
@@ -2561,7 +2566,7 @@ provided for `--wrapparameters`, the value for `--wraparguments` will be used.
 </details>
 <br/>
 
-**NOTE:** 存疑，需要确定
+**NOTE:** 待讨论
 
 ## wrapSingleLineComments
 
@@ -2602,6 +2607,8 @@ provided for `--wrapparameters`, the value for `--wraparguments` will be used.
 
 </details>
 <br/>
+
+**NOTES:** 开启后，Codable 模型需要检查下字段。
 
 ## blankLineAfterSwitchCase
 
@@ -2714,7 +2721,7 @@ provided for `--wrapparameters`, the value for `--wraparguments` will be used.
 
 ## isEmpty
 
-Prefer `isEmpty` over comparing `count` against zero.
+首选 `isEmpty` 而不是用 `count` 跟零进行对比。
 
 <details>
 <summary>示例</summary>
@@ -2730,17 +2737,14 @@ Prefer `isEmpty` over comparing `count` against zero.
 + if foo?.isEmpty == true {
 ```
 
-***NOTE:*** In rare cases, the `isEmpty` rule may insert an `isEmpty` call for
-a type that doesn't implement that property, breaking the program. For this
-reason, the rule is disabled by default, and must be manually enabled via the
-`--enable isEmpty` option.
+**NOTE:** 在少数情况下，`isEmpty` 规则可能会对不实现该属性的类型插入 `isEmpty` 调用，从而导致程序出错。因此，该规则默认情况下是禁用的，必须通过 `--enable isEmpty` 选项手动启用。
 
 </details>
 <br/>
 
 ## markTypes
 
-Add a MARK comment before top-level types and extensions.
+在顶级类型和扩展之前添加 MARK 注释。
 
 选项 | 描述
 --- | ---
@@ -2772,7 +2776,7 @@ Add a MARK comment before top-level types and extensions.
 
 ## noExplicitOwnership
 
-Don't use explicit ownership modifiers (borrowing / consuming).
+不要使用显式的所有权修饰符 (borrowing / consuming)。
 
 <details>
 <summary>示例</summary>
@@ -2787,7 +2791,7 @@ Don't use explicit ownership modifiers (borrowing / consuming).
 
 ## organizeDeclarations
 
-Organize declarations within class, struct, enum, actor, and extension bodies.
+组织 `class`，`struct`，`enum`，`actor` 和 `extension` 内的声明。
 
 选项 | 描述
 --- | ---
@@ -2896,7 +2900,7 @@ Organize declarations within class, struct, enum, actor, and extension bodies.
 
 ## redundantProperty
 
-Simplifies redundant property definitions that are immediately returned.
+简化那些立即返回的冗余属性定义。
 
 <details>
 <summary>示例</summary>
@@ -2914,11 +2918,11 @@ Simplifies redundant property definitions that are immediately returned.
 
 ## sortSwitchCases
 
-Sort switch cases alphabetically.
+按字母顺序排列 switch 语句中的 case。
 
 ## wrapConditionalBodies
 
-Wrap the bodies of inline conditional statements onto a new line.
+将内联条件语句的主体部分换到新的一行。
 
 <details>
 <summary>示例</summary>
@@ -2942,7 +2946,7 @@ Wrap the bodies of inline conditional statements onto a new line.
 
 ## wrapEnumCases
 
-Rewrite comma-delimited enum cases to one case per line.
+将用 `,` 分隔的枚举 case 重写为每个 case 占一行。
 
 选项 | 描述
 --- | ---
@@ -2967,7 +2971,7 @@ Rewrite comma-delimited enum cases to one case per line.
 
 ## wrapMultilineConditionalAssignment
 
-Wrap multiline conditional assignment expressions after the assignment operator.
+在赋值运算符后将多行条件赋值表达式换行。
 
 <details>
 <summary>示例</summary>
@@ -2991,7 +2995,7 @@ Wrap multiline conditional assignment expressions after the assignment operator.
 
 ## wrapSwitchCases
 
-Wrap comma-delimited switch cases onto multiple lines.
+将 switch 语句中有 `,` 的多个 case 换行。
 
 <details>
 <summary>示例</summary>
@@ -3016,18 +3020,18 @@ Wrap comma-delimited switch cases onto multiple lines.
 
 ## sortedImports
 
-Sort import statements alphabetically.
+按字母顺序排列 import 语句。
 
 *Note: sortedImports rule is deprecated. Use sortImports instead.*
 
 ## sortedSwitchCases
 
-Sort switch cases alphabetically.
+按字母顺序排列 switch 语句中的 case。
 
 *Note: sortedSwitchCases rule is deprecated. Use sortSwitchCases instead.*
 
 ## specifiers
 
-Use consistent ordering for member modifiers.
+为成员修饰符使用一致的顺序。
 
 *Note: specifiers rule is deprecated. Use modifierOrder instead.*
