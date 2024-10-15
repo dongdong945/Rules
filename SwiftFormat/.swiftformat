@@ -14,9 +14,6 @@
 --enable blankLinesBetweenChainedFunctions
 --enable blankLinesBetweenScopes
 --enable braces
-
-# --enable conditionalAssignment
-
 --enable consecutiveBlankLines
 --enable consecutiveSpaces
 --enable consistentSwitchCaseSpacing
@@ -28,13 +25,12 @@
 --enable extensionAccessControl
 --extensionacl on-declarations
 
-# --enable fileHeader
-# --enable genericExtensions
-
+--enable genericExtensions
 --enable headerFileName
 --enable hoistAwait
 
-# --enable hoistPatternLet
+--enable hoistPatternLet
+--patternlet inline
 
 --enable hoistTry
 --enable indent
@@ -44,12 +40,13 @@
 --enable linebreaks
 --enable modifierOrder
 
-# --enable numberFormatting
+--enable numberFormatting
+--decimalgrouping ignore
+--binarygrouping ignore
+--octalgrouping ignore
+--hexgrouping ignore
 
 --enable opaqueGenericParameters
-
-# --enable preferForLoop
-
 --enable preferKeyPath
 --enable redundantBackticks
 --enable redundantBreak
@@ -93,27 +90,34 @@
 --enable todos
 --enable trailingClosures
 
-# --enable trailingCommas
+--enable trailingCommas
+--commas inline
 
 --enable trailingSpace
 --enable typeSugar
 --enable unusedArguments
 --enable void
 --enable wrap
+
 --enable wrapArguments
+--wraparguments before-first
+--wrapparameters before-first
+--wrapcollections before-first
+--wrapconditions after-first
+
 --enable wrapAttributes
+--funcattributes prev-line
+--typeattributes prev-line
+--storedvarattrs prev-line
+--computedvarattrs prev-line
+
 --enable wrapLoopBodies
-
-# --enable wrapMultilineStatementBraces
-
 --enable wrapSingleLineComments
 --enable yodaConditions
 
 # Opt-in Rules
---enable blankLineAfterSwitchCase
 --enable blankLinesBetweenImports
 --enable redundantProperty
---enable wrapConditionalBodies
 --enable wrapEnumCases
 --enable wrapSwitchCases
 

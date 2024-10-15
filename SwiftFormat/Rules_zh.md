@@ -2351,10 +2351,10 @@ As per Apple's recommendation
 
 选项 | 描述
 --- | ---
-`--wraparguments` | Wrap all arguments: "before-first", "after-first", "preserve"
-`--wrapparameters` | Wrap func params: "before-first", "after-first", "preserve"
+`--wraparguments` | 将所有参数放在单独行上: "before-first", "after-first", "preserve"
+`--wrapparameters` | 将函数参数换行: "before-first", "after-first", "preserve"
 `--wrapcollections` | Wrap array/dict: "before-first", "after-first", "preserve"
-`--closingparen` | Closing paren position: "balanced" (default) or "same-line"
+`--closingparen` | 右括号位置: "balanced" (default) or "same-line"
 `--callsiteparen` | Closing paren at call sites: "balanced" or "same-line"
 `--wrapreturntype` | Wrap return type: "if-multiline", "preserve" (default)
 `--wrapconditions` | Wrap conditions: "before-first", "after-first", "preserve"
@@ -2429,10 +2429,10 @@ provided for `--wrapparameters`, the value for `--wraparguments` will be used.
 
 选项 | 描述
 --- | ---
-`--funcattributes` | Function @attributes: "preserve", "prev-line", or "same-line"
-`--typeattributes` | Type @attributes: "preserve", "prev-line", or "same-line"
-`--storedvarattrs` | Stored var @attribs: "preserve", "prev-line", or "same-line"
-`--computedvarattrs` | Computed var @attribs: "preserve", "prev-line", "same-line"
+`--funcattributes` | 函数 @attributes: "preserve", "prev-line", or "same-line"
+`--typeattributes` | 类型 @attributes: "preserve", "prev-line", or "same-line"
+`--storedvarattrs` | 存储变量 @attribs: "preserve", "prev-line", or "same-line"
+`--computedvarattrs` | 计算变量 @attribs: "preserve", "prev-line", "same-line"
 `--complexattrs` | Complex @attributes: "preserve", "prev-line", or "same-line"
 `--noncomplexattrs` | List of @attributes to exclude from complexattrs rule
 
